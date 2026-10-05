@@ -46,6 +46,77 @@ button {
   margin: 0 auto;
 }
 
+/* ========== Animations ========== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 18px 40px rgba(47, 111, 235, 0.1);
+  }
+  50% {
+    box-shadow: 0 18px 40px rgba(47, 111, 235, 0.25);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+/* ========== Header ========== */
 .site-header {
   position: sticky;
   top: 0;
@@ -53,6 +124,18 @@ button {
   backdrop-filter: blur(8px);
   background: rgba(244, 248, 255, 0.8);
   border-bottom: 1px solid rgba(130, 155, 196, 0.15);
+  animation: slideInDown 0.5s ease-out;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .nav-wrap {
@@ -66,6 +149,11 @@ button {
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.05em;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover {
+  transform: scale(1.05);
 }
 
 .brand span {
@@ -107,6 +195,7 @@ button {
   transform: scaleX(1);
 }
 
+/* ========== Hero Section ========== */
 .hero {
   padding: 88px 0 52px;
 }
@@ -126,6 +215,7 @@ button {
   text-transform: uppercase;
   color: var(--primary);
   font-weight: 700;
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .hero-copy h1,
@@ -135,6 +225,7 @@ button {
   line-height: 1.05;
   letter-spacing: -0.06em;
   font-size: clamp(2.5rem, 5vw, 4.4rem);
+  animation: slideInLeft 0.6s ease-out 0.1s backwards;
 }
 
 .lead {
@@ -143,6 +234,7 @@ button {
   font-size: 1.08rem;
   line-height: 1.75;
   color: var(--muted);
+  animation: fadeInUp 0.6s ease-out 0.2s backwards;
 }
 
 .hero-actions {
@@ -150,6 +242,7 @@ button {
   flex-wrap: wrap;
   gap: 16px;
   margin-top: 28px;
+  animation: fadeInUp 0.6s ease-out 0.3s backwards;
 }
 
 .button {
@@ -161,11 +254,11 @@ button {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .button-primary {
@@ -174,16 +267,32 @@ button {
   box-shadow: 0 12px 26px rgba(47, 111, 235, 0.26);
 }
 
+.button-primary:hover {
+  box-shadow: 0 18px 36px rgba(47, 111, 235, 0.36);
+}
+
 .button-secondary {
   background: var(--panel);
   border-color: var(--border);
   color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.button-secondary:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
 }
 
 .button-ghost {
   background: rgba(255, 255, 255, 0.5);
   border-color: var(--border);
   color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.button-ghost:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--primary);
 }
 
 .quick-stats {
@@ -193,6 +302,7 @@ button {
   gap: 24px;
   padding: 0;
   margin: 34px 0 0;
+  animation: fadeInUp 0.6s ease-out 0.4s backwards;
 }
 
 .quick-stats li {
@@ -202,6 +312,12 @@ button {
   border-radius: 18px;
   padding: 16px 18px;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.quick-stats li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 40px rgba(19, 43, 80, 0.1);
 }
 
 .quick-stats strong {
@@ -226,6 +342,12 @@ button {
   border-radius: 22px;
   padding: 22px 20px;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(47, 111, 235, 0.15);
 }
 
 .mini-card.highlight {
@@ -255,6 +377,7 @@ button {
   line-height: 1.7;
 }
 
+/* ========== Sections ========== */
 .section {
   padding: 90px 0;
 }
@@ -285,6 +408,11 @@ button {
   line-height: 1.9;
 }
 
+.about-copy p {
+  margin: 0;
+}
+
+/* ========== Skills Section ========== */
 .skills-wrapper {
   margin-top: 28px;
 }
@@ -321,8 +449,16 @@ button {
   color: var(--text);
   box-shadow: 0 12px 22px rgba(72, 92, 130, 0.05);
   padding: 12px;
+  transition: all 0.3s ease;
 }
 
+.skill-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(47, 111, 235, 0.15);
+  border-color: var(--primary);
+}
+
+/* ========== Timeline & Experience ========== */
 .timeline {
   margin-top: 28px;
   display: grid;
@@ -335,6 +471,31 @@ button {
   border-radius: 22px;
   padding: 24px 24px;
   box-shadow: 0 12px 22px rgba(72, 92, 130, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary), #4f8fff);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  transform: translateX(8px);
+  box-shadow: 0 18px 40px rgba(47, 111, 235, 0.12);
+}
+
+.timeline-item:hover::before {
+  transform: scaleY(1);
 }
 
 .timeline-header {
@@ -343,6 +504,8 @@ button {
   align-items: center;
   margin-bottom: 8px;
   gap: 16px;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-header h3 {
@@ -359,6 +522,12 @@ button {
   font-size: 0.8rem;
   font-weight: 700;
   white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-date {
+  background: var(--primary);
+  color: white;
 }
 
 .timeline-company {
@@ -366,6 +535,8 @@ button {
   color: var(--muted);
   font-size: 1rem;
   font-weight: 600;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-details {
@@ -374,22 +545,136 @@ button {
   margin: 0;
   color: var(--muted);
   line-height: 1.8;
+  position: relative;
+  z-index: 1;
 }
 
 .timeline-details li {
   margin-bottom: 8px;
   padding-left: 20px;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .timeline-details li:before {
-  content: "•";
+  content: "»";
   position: absolute;
   left: 0;
   color: var(--primary);
   font-weight: 700;
 }
 
+.timeline-item:hover .timeline-details li {
+  color: var(--text);
+}
+
+/* ========== Certifications ========== */
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.cert-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 24px 20px;
+  box-shadow: 0 12px 22px rgba(72, 92, 130, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cert-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(47, 111, 235, 0.1), transparent);
+  transition: top 0.3s ease;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 40px rgba(47, 111, 235, 0.15);
+}
+
+.cert-card:hover::before {
+  top: 0;
+}
+
+.cert-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.cert-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cert-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: -0.03em;
+  line-height: 1.4;
+}
+
+.cert-issuer {
+  margin: 0 0 16px 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.cert-link {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cert-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.cert-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ========== Projects Section ========== */
 .section-head {
   display: flex;
   align-items: end;
@@ -412,14 +697,15 @@ button {
   padding: 10px 16px;
   cursor: pointer;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.filter-btn.active,
-.filter-btn:hover {
+.filter-btn:hover,
+.filter-btn.active {
   background: var(--primary-soft);
   color: var(--primary);
   border-color: rgba(47, 111, 235, 0.24);
+  transform: translateY(-2px);
 }
 
 .projects-grid {
@@ -434,12 +720,31 @@ button {
   border-radius: 22px;
   box-shadow: var(--shadow);
   padding: 20px 20px 18px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(47, 111, 235, 0.05), transparent);
+  transition: left 0.5s ease;
+  pointer-events: none;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 40px rgba(19, 43, 80, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 28px 48px rgba(19, 43, 80, 0.12);
+  border-color: rgba(47, 111, 235, 0.24);
+}
+
+.project-card:hover::before {
+  left: 100%;
 }
 
 .project-topline {
@@ -459,12 +764,18 @@ button {
   color: var(--primary);
   font-size: 0.74rem;
   font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .project-lang {
+  background: var(--primary);
+  color: white;
 }
 
 .project-topline a {
   color: var(--muted);
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .project-topline a:hover {
@@ -483,6 +794,7 @@ button {
   line-height: 1.7;
 }
 
+/* ========== Contact Section ========== */
 .contact-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -493,6 +805,11 @@ button {
   border-radius: 28px;
   padding: 40px 40px;
   box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.contact-box:hover {
+  box-shadow: 0 28px 56px rgba(47, 111, 235, 0.16);
 }
 
 .contact-box h2 {
@@ -513,12 +830,18 @@ button {
   margin: 10px 0;
   color: var(--muted);
   line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.contact-info p:hover {
+  color: var(--text);
 }
 
 .contact-info a {
   color: var(--primary);
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .contact-info a:hover {
@@ -538,6 +861,7 @@ button {
   gap: 12px;
 }
 
+/* ========== Footer ========== */
 .site-footer {
   padding: 28px 0 48px;
 }
@@ -549,16 +873,22 @@ button {
   color: var(--muted);
   border-top: 1px solid rgba(130, 155, 196, 0.18);
   padding-top: 18px;
+  font-size: 0.95rem;
 }
 
 .hidden {
   display: none !important;
 }
 
+/* ========== Responsive Design ========== */
 @media (max-width: 1020px) {
   .section-head {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .certifications-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -594,7 +924,8 @@ button {
   }
 
   .skills-grid,
-  .projects-grid {
+  .projects-grid,
+  .certifications-grid {
     grid-template-columns: 1fr;
   }
 
@@ -609,5 +940,9 @@ button {
 
   .footer-wrap {
     flex-direction: column;
+  }
+
+  .project-card {
+    animation: fadeInUp 0.6s ease-out forwards !important;
   }
 }

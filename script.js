@@ -19,3 +19,28 @@ filterButtons.forEach((button) => {
     });
   });
 });
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px',
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = entry.target.classList.contains('fade-in-up')
+        ? 'fadeInUp 0.6s ease-out forwards'
+        : entry.target.classList.contains('slide-in-right')
+        ? 'slideInRight 0.6s ease-out forwards'
+        : entry.target.classList.contains('slide-in-left')
+        ? 'slideInLeft 0.6s ease-out forwards'
+        : 'none';
+      observer.unobserve(entry.target);
+    }
+  });
+});
+
+document.querySelectorAll('.fade-in-up, .slide-in-right, .slide-in-left').forEach((el) => {
+  observer.observe(el);
+});
